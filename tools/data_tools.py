@@ -9,8 +9,6 @@
 '''
 
 
-
-
 from scipy.io import loadmat
 import pandas as pd
 import os
@@ -18,11 +16,15 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 print(f"BASE_DIR: {BASE_DIR}")
 
+
+def get_key_list(keys):
+    return [key for key in keys if not (key.startswith('__') and key.endswith("__"))]
+
 def make_dir(dir_name):
     if not os.path.isdir(dir_name):
         os.makedirs(dir_name)
 
-def mat2txt(data, key, dirname):
+def mat2csv(data, key, dirname):
     subdata = data[key]
     df = pd.DataFrame(subdata)
     dirname = os.path.join(BASE_DIR, dirname)
@@ -30,14 +32,16 @@ def mat2txt(data, key, dirname):
     df.to_csv(f'{dirname}/{key}.csv', index=False)
     print(f'{key}.csv, done!')
 
-def main(paths, dirname):
+def dataset_viewing(paths, dirname):
     data = loadmat(paths)
-    key_list = [key for key in data.keys() if not (key.startswith('__') and key.endswith("__"))]
+    key_list = get_key_list(data.keys())
     print(f'key_list: {key_list}')
     for key in key_list:
-        mat2txt(data=data, key=key, dirname=dirname)
+        mat2csv(data=data, key=key, dirname=dirname)
+
 
 if __name__ == "__main__":
     path = r"E:\第4章\PA100K\annotation\annotation.mat"
-    main(path, 'PA100K')
+    dataset_viewing(path, 'PA100K')
+
     print("ALL DONE!")
