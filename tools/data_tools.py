@@ -41,6 +41,7 @@ def dataset_viewing(paths, dirname):
 
 
 if __name__ == "__main__":
+    # path PA100K mat文件存放目录
     path = r"E:\第4章\PA100K\annotation\annotation.mat"
     dataset_viewing(path, 'PA100K')
 
