@@ -48,7 +48,7 @@ def copy_img(input_file, output_file, num=10000, rate=0):
     i = 0
     make_my_dir(output_file)
     for dir_path, _, file_names in os.walk(input_file):
-        print(dir_path)
+        # print(dir_path)
         if file_names != []:
             file_number=len(file_names)
             if rate < 0 or rate > 1:
