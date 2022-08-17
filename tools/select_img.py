@@ -45,7 +45,7 @@ def copy_img(input_file, output_file, num=10000, rate=0):
     num: 抽取图片数量
     rate: 按照rate比例从文件夹中取一定数量图片；当rate=0时，只抽取第一张图片
     """
-    i = 1
+    i = 0
     make_my_dir(output_file)
     for dir_path, _, file_names in os.walk(input_file):
         print(dir_path)
@@ -65,7 +65,7 @@ def copy_img(input_file, output_file, num=10000, rate=0):
                     shutil.copy(dir_path + '\\' + name, output_file + '\\' + str(i) + name)
                 if i%1000==0 and i>0:
                     print(f"完成了{i}次！")
-        if i > num:
+        if i >= num:
             break
     print("完成")
 
