@@ -54,7 +54,7 @@ def labe2json(data_paths, label_path, output_dir,nums):
 
             with open(output_dir + r"\{:0>6d}.json".format(i+1), "w") as f:
                 json.dump(temp_label_dic, f)
-            if nums == i:
+            if nums == i+1:
                 print("all done")
                 sys.exit(1)
             elif i%100 == 0 and i != 0:
@@ -62,8 +62,8 @@ def labe2json(data_paths, label_path, output_dir,nums):
 
 
 if __name__ == "__main__":
-    
+
     labe2json(r'tools\PA100K\train_label.csv', 
             r'tools\PA100K\attributes.csv', 
             r'D:\360MoveData\Users\bug\Desktop\out_put',
-            3)
+            100000)
