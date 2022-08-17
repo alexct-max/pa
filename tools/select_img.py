@@ -62,14 +62,14 @@ def copy_img(input_file, output_file, num=10000, rate=0):
             for name in sample:
                 if check_img(str(dir_path + '\\' + name)):
                     i += 1
-                    shutil.copy(dir_path + '\\' + name, output_file + '\\' + str(i) + name)
-                if i%1000==0 and i>0:
-                    print(f"完成了{i}次！")
+                    if i%1000==0 and i>0:
+                        print(f"完成了{i}次！")
+                    shutil.copy(dir_path + '\\' + name, output_file + '\\' + str(i) + name)              
         if i >= num:
             break
-    print("完成")
+    print("全部完成")
 
 
 if __name__ == '__main__':
-    copy_img(r'D:\wangwei\dataset\self_PAR_dataset\all_5union_datasets', r"D:\wangwei\dataset\test_data\out_put", num=100)    
+    copy_img(r'D:\wangwei\dataset\self_PAR_dataset\all_5union_datasets', r"D:\wangwei\dataset\test_data\out_put", num=6000)    
 
