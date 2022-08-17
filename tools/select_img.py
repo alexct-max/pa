@@ -5,7 +5,7 @@
 @Time    :   2022/08/17 15:57:32
 @Author  :   Alex Wong 
 @Version :   1.0
-@Desc    :   None
+@Desc    :   挑选自建数据集，并初步过滤
 '''
 
 
